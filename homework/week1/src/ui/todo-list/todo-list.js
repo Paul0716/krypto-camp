@@ -1,5 +1,4 @@
 import React, { Fragment, useState } from 'react';
-import styles from './todo-list.module.css';
 
 export const ToDoList = (props) => {
     const [itemValue, setItemValue] = useState('');
@@ -18,7 +17,7 @@ export const ToDoList = (props) => {
 
     return <Fragment>
         <div className="text-3xl font-bold underline">ToDo List:</div>
-        <div className="py-6 flex justify-between flex-col sp">
+        <div className="flex flex-col justify-between py-6 sp">
             <input type="text" name="add-item"
                 className="w-full mb-2 text-slate-800"
                 value={itemValue} onChange={onChangeHandler}
