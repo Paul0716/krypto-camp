@@ -2,7 +2,7 @@ import logo from './logo.svg';
 import './App.css';
 import { ToDoList } from './ui/todo-list/todo-list';
 import { ToDoItem } from './ui/todo-item/todo-item';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 
 export const App = () => {
   const [itemList, setItemList] = useState([]);
@@ -26,10 +26,9 @@ export const App = () => {
     setItemList([...itemList]);
   }
   
-  // eslint-disable-next-line
-  const getSelectedItem = () => {
+  const getSelectedItem = useCallback(() => {
     return itemList.filter(o => o.selected);
-  };
+  }, [itemList]);
 
 
   const deleteSelectedItem = () => {
