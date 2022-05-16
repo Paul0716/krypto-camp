@@ -25,10 +25,11 @@ export const App = () => {
     itemList.splice(index, 1);
     setItemList([...itemList]);
   }
-
+  
+  // eslint-disable-next-line
   const getSelectedItem = () => {
     return itemList.filter(o => o.selected);
-  }
+  };
 
 
   const deleteSelectedItem = () => {
@@ -45,7 +46,7 @@ export const App = () => {
     const showActionItem = getSelectedItem().length > 0;
     setActionItem(showActionItem);
     return () => {};
-  }, [itemList, getSelectedItem]);  
+  }, [getSelectedItem]);  
 
 
   return (
@@ -64,8 +65,8 @@ export const App = () => {
                 })  
               }
             </ToDoList>
-            {showActionItem && <p><button type="button" className="rounded-full bg-orange-400 px-4"onClick={deleteSelectedItem}>Delete All</button></p>}
-        <div className="footer py-4">
+            {showActionItem && <p><button type="button" className="px-4 bg-orange-400 rounded-full"onClick={deleteSelectedItem}>Delete All</button></p>}
+        <div className="py-4 footer">
           <p>
             <span>Total: {itemList.length}.</span>
             <span>Selected: {getSelectedItem().length}</span>
